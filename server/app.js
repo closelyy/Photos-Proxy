@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 const axios = require('axios');
 
-const reviewsPort = 'http://localhost:3001';
-const reservationsPort = 'http://localhost:3002';
+const reviewsUrl = 'http://localhost:3001';
+const reservationsUrl = 'http://localhost:3002';
 
 const app = express();
 const PORT = 3000;
@@ -16,7 +16,7 @@ app.get('/businesses/:id', (req, res) => {
 });
 
 app.get('/api/reservations/', (req, res) => {
-  axios.get(`${reservationsPort}/api/reservations`)
+  axios.get(`${reservationsUrl}/api/reservations`)
     .then((response) => {
       res.status(200).send(response.data);
     })
@@ -27,7 +27,7 @@ app.get('/api/reservations/', (req, res) => {
 
 app.get('/api/reviews/:id', (req, res) => {
   const { id } = req.params;
-  axios.get(`${reviewsPort}/api/reviews/${id}`)
+  axios.get(`${reviewsUrl}/api/reviews/${id}`)
     .then((response) => {
       res.status(200).send(response.data);
     })
@@ -38,7 +38,7 @@ app.get('/api/reviews/:id', (req, res) => {
 
 app.get('/businesses/Pictures/:id', (req, res) => {
   const { id } = req.params;
-  axios.get(`${reviewsPort}/businesses/Pictures/${id}`)
+  axios.get(`${reviewsUrl}/businesses/Pictures/${id}`)
     .then((response) => {
       res.status(200).send(response.data);
     })
