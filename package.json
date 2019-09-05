@@ -11,6 +11,7 @@
     "start": "nodemon ./server/app.js localhost:1984"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "babel-eslint": "^10.0.3",
     "express": "^4.17.1",
     "nodemon": "^1.19.2",
