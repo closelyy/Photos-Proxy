@@ -1,0 +1,42 @@
+version: '3.7'
+
+services:
+  photos:
+    image: presw/closely_photos
+    command: npm start
+    restart: always
+    depends_on:
+      - 'database'
+    ports: 
+      - '3003:3003'
+
+  # reservations:
+  #   image: closely_reservations
+  #   command: npm start
+  #   restart: always
+  #   depends_on:
+  #     - 'mongo'
+  #   ports:
+  #     - '3002:3002'
+
+  # reviews:
+  #   image: user00001/reviews
+  #   command: npm nonsense
+  #   restart: always
+  #   depends_on:
+  #     - 'database'
+  #   ports:
+  #     - '3001:3001'
+
+  # mongo:
+  #   image:
+
+  database:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=closely
+    ports:
+      - '3306:3306'
