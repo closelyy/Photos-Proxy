@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+
+  services:
+    image: presw/closely_photos_proxy
+    command: npm start
+    restart: always
+    ports:
+      - '3000:3000'
